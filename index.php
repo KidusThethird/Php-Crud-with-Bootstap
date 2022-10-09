@@ -125,32 +125,24 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Data</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         
-                    <form action="update.php" method="POST">
+                    <form action="delete.php" method="POST">
                     <div class="mb-3">
                      
-                      <input type="hidden" name="update_id" id="update_id">
+                      <input type="hidden" name="delete_id" id="delete_id">
                   <h4>Do you want to delete this data?</h4>                 
                               
                               
-                              </div>
-                    
-                    
-                   
-                    
-                    
-                    
-                    
-                  
+                              </div>     
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="submit" name="updatedata" class="btn btn-danger"> Delete</button>
+        <button type="submit" name="deletedata" class="btn btn-danger"> Delete</button>
       </div>
 
       </form>
@@ -274,7 +266,7 @@ $('.deletebtn').on('click', function () {
     }).get();
 
     console.log(data);
-
+    $('#delete_id').val(data[0]);
   
 });
 })
