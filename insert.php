@@ -1,6 +1,5 @@
 <?php 
-$connection = mysqli_connect("localhost", "root", "");
-$db = mysqli_select_db($connection, "phpcrud");
+include("connect.php");
 
 
 if(isset($_POST['insertdata']))
@@ -10,7 +9,7 @@ if(isset($_POST['insertdata']))
     $course = $_POST['course'];
     $contact = $_POST['contact'];
     
-    $query = "INSERT INTO student (`fname`,`lname`,`course`,`contact`) VALUES ('$fnamee' , '$lname', '$course', '$contact')";
+    $query = "INSERT INTO student (`fname`,`lname`,`course`,`contact`) VALUES ('$fname' , '$lname', '$course', '$contact')";
 
     $query_run = mysqli_query($connection, $query);
 

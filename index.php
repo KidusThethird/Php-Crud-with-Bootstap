@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PhP CRUD</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
   </head>
   <body>
 
@@ -51,17 +52,25 @@
 
       </form>
 
+    
+
+
     </div>
   </div>
 </div>
 <!-- Modal End-->
 
 
+
+
+
+
+
     <div class="container">
         <br><br>
         <div class="jumbotron">
             <div class="card">
-                <h2>PhP CRUD Bootstap Modal (Pop Up Modal)</h2>
+                <h2 class="">PhP CRUD Bootstap Modal (Pop Up Modal)</h2>
             </div>
 
             <div class="card">
@@ -72,6 +81,67 @@
             </div>
             
             
+<!--table start -->
+        </div class="card">
+      
+        <div class="card-body">
+
+        <?php
+           include("connect.php");
+
+                $query = "SELECT * FROM student";
+                $query_run = mysqli_query($connection, $query);
+           ?>
+        
+                   
+
+
+                    
+
+
+<table class="table table-dark green-table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Id</th>
+                          <th scope="col">FName</th>
+                          <th scope="col">LName</th>
+                          <th scope="col">Course</th>
+                          <th scope="col">Contact</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+            <?php
+      if($query_run)
+      {
+          foreach($query_run as $row)
+          {
+  ?>
+                    
+                        <tr>
+                          <th scope="row"><?php   echo $row['id']; ?></th>
+                          <td><?php   echo $row['fname']; ?></td>
+                          <td><?php   echo $row['lname']; ?></td>
+                          <td><?php   echo $row['course']; ?></td>
+                          <td><?php   echo $row['contact']; ?></td>
+                        </tr>
+       <?php 
+          }
+        }
+        else{
+          echo "No Record Found";
+          echo "<script> alert'Data Not Saved'; <script/>";
+
+        }
+       ?>              
+                      </tbody>
+
+                      </table>
+</div>
+      </div>
+
+<!--tabel end -->
+
+
         </div>
     </div>
   
