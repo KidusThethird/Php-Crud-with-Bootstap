@@ -11,8 +11,8 @@
 
 
 
-<!-- Modal Start-->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal(to insert data) Start-->
+<div class="modal fade" id="studentAddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -61,6 +61,58 @@
 <!-- Modal End-->
 
 
+<!-- ############################################################################################### -->
+
+
+
+<!-- Modal(To edit Data) Start-->
+<div class="modal fade" id="studentEditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Data</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+                    <form action="insert.php" method="POST">
+                    <div class="mb-3">
+                    <label  class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="" name="firstName" placeholder="Enter First Name"> 
+                    </div>
+                    <div class="mb-3">
+                    <label  class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="" name="lastName" placeholder="Enter Last Name"> 
+                    </div>
+                    <div class="mb-3">
+                    <label  class="form-label">Course</label>
+                    <input type="text" class="form-control" id="" name="course" placeholder="Enter Course"> 
+                    </div>
+                    <div class="mb-3">
+                    <label  class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" id="" name="contact" placeholder="Enter Phone Number"> 
+                    </div>
+                    
+                    
+                    
+                    
+                  
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" name="insertdata" class="btn btn-primary">Save Edited Data</button>
+      </div>
+
+      </form>
+
+    
+
+
+    </div>
+  </div>
+</div>
+<!-- Modal End-->
 
 
 
@@ -76,7 +128,7 @@
             <div class="card">
             
                 <div class="card-body">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#studentAddModal">Add</button>
                 </div>
             </div>
             
@@ -125,7 +177,7 @@
                           <td><?php   echo $row['course']; ?></td>
                           <td><?php   echo $row['contact']; ?></td>
                           <td>
-                            <button type="button" class="btn btn-success">Edit</button>
+                            <button type="button" class="btn btn-success" onclick="popEditModal()">Edit</button>
                           </td>
                         </tr>
        <?php 
@@ -155,6 +207,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+
+<script>
+  function popEditModal(){
+    $('#studentEditModal').modal('show');
+  }
+</script>
+
+
 </body>
 
 
