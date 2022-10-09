@@ -24,11 +24,11 @@
                     <form action="insert.php" method="POST">
                     <div class="mb-3">
                     <label  class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="" name="firstName" placeholder="Enter First Name"> 
+                    <input type="text" class="form-control" id="" name="fname" placeholder="Enter First Name"> 
                     </div>
                     <div class="mb-3">
                     <label  class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="" name="lastName" placeholder="Enter Last Name"> 
+                    <input type="text" class="form-control" id="" name="lname" placeholder="Enter Last Name"> 
                     </div>
                     <div class="mb-3">
                     <label  class="form-label">Course</label>
@@ -77,20 +77,22 @@
         
                     <form action="insert.php" method="POST">
                     <div class="mb-3">
+                     
+                      <input type="hidden" name="update_id" id="update_id">
                     <label  class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="" name="firstName" placeholder="Enter First Name"> 
-                    </div>
+                    <input type="text" name="fname" id="fname" class="form-control"
+                                placeholder="Enter First Name">                    </div>
                     <div class="mb-3">
                     <label  class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="" name="lastName" placeholder="Enter Last Name"> 
+                    <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter Last Name"> 
                     </div>
                     <div class="mb-3">
                     <label  class="form-label">Course</label>
-                    <input type="text" class="form-control" id="" name="course" placeholder="Enter Course"> 
+                    <input type="text" class="form-control" id="course" name="course" placeholder="Enter Course"> 
                     </div>
                     <div class="mb-3">
                     <label  class="form-label">Phone Number</label>
-                    <input type="text" class="form-control" id="" name="contact" placeholder="Enter Phone Number"> 
+                    <input type="text" class="form-control" id="contact" name="contact" placeholder="Enter Phone Number"> 
                     </div>
                     
                     
@@ -101,7 +103,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" name="insertdata" class="btn btn-primary">Save Edited Data</button>
+        <button type="submit" name="updatedata" class="btn btn-primary">Save Edited Data</button>
       </div>
 
       </form>
@@ -171,13 +173,13 @@
   ?>
                     
                         <tr>
-                          <th scope="row"><?php   echo $row['id']; ?></th>
+                          <td><?php   echo $row['id']; ?></td>
                           <td><?php   echo $row['fname']; ?></td>
                           <td><?php   echo $row['lname']; ?></td>
                           <td><?php   echo $row['course']; ?></td>
                           <td><?php   echo $row['contact']; ?></td>
                           <td>
-                            <button type="button" class="btn btn-success" onclick="popEditModal()">Edit</button>
+                            <button type="button" class="btn btn-success editbtn" onclick="popEditModal()">Edit</button>
                           </td>
                         </tr>
        <?php 
@@ -209,9 +211,33 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 
 <script>
-  function popEditModal(){
+ $(document).ready(function () {
+
+$('.editbtn').on('click', function () {
+
     $('#studentEditModal').modal('show');
-  }
+
+    $tr = $(this).closest('tr');
+
+    var data = $tr.children("td").map(function () {
+        return $(this).text();
+    }).get();
+
+    console.log(data);
+
+    $('#update_id').val(data[0]);
+    $('#fname').val(data[1]);
+    $('#lname').val(data[2]);
+    $('#course').val(data[3]);
+    $('#contact').val(data[4]);
+});
+});$('#lname').val(data[2]);
+        $('#course').val(data[3]);
+        $('#contact').val(data[4]);
+
+  
+
+ 
 </script>
 
 

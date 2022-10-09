@@ -4,8 +4,8 @@ include("connect.php");
 
 if(isset($_POST['insertdata']))
 {
-    $fname = $_POST['firstName'];
-    $lname = $_POST['lastName'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
     $course = $_POST['course'];
     $contact = $_POST['contact'];
     
