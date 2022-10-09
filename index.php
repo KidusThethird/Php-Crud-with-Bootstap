@@ -116,7 +116,52 @@
 </div>
 <!-- Modal End-->
 
+<!-- ############################################################################################### -->
 
+
+
+<!-- Modal(To Delete Data) Start-->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+                    <form action="update.php" method="POST">
+                    <div class="mb-3">
+                     
+                      <input type="hidden" name="update_id" id="update_id">
+                  <h4>Do you want to delete this data?</h4>                 
+                              
+                              
+                              </div>
+                    
+                    
+                   
+                    
+                    
+                    
+                    
+                  
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" name="updatedata" class="btn btn-danger"> Delete</button>
+      </div>
+
+      </form>
+
+    
+
+
+    </div>
+  </div>
+</div>
+<!-- Modal End-->
 
 
 
@@ -153,7 +198,7 @@
                     
 
 
-<table class="table table-dark green-table">
+<table class="table table-dark ">
                       <thead>
                         <tr>
                           <th scope="col">Id</th>
@@ -161,6 +206,7 @@
                           <th scope="col">LName</th>
                           <th scope="col">Course</th>
                           <th scope="col">Contact</th>
+                          <th></th>
                           <th></th>
                         </tr>
                       </thead>
@@ -180,6 +226,9 @@
                           <td><?php   echo $row['contact']; ?></td>
                           <td>
                             <button type="button" class="btn btn-success editbtn" onclick="popEditModal()">Edit</button>
+                          </td>
+                          <td>
+                            <button type="button" class="btn btn-danger deletebtn" onclick="popEditModal()">Del</button>
                           </td>
                         </tr>
        <?php 
@@ -210,6 +259,33 @@
  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 
+
+<script>
+ $(document).ready(function () {
+
+$('.deletebtn').on('click', function () {
+
+    $('#deleteModal').modal('show');
+
+    $tr = $(this).closest('tr');
+
+    var data = $tr.children("td").map(function () {
+        return $(this).text();
+    }).get();
+
+    console.log(data);
+
+  
+});
+})
+
+  
+
+ 
+</script>
+
+
+
 <script>
  $(document).ready(function () {
 
@@ -231,9 +307,7 @@ $('.editbtn').on('click', function () {
     $('#course').val(data[3]);
     $('#contact').val(data[4]);
 });
-});$('#lname').val(data[2]);
-        $('#course').val(data[3]);
-        $('#contact').val(data[4]);
+});
 
   
 
