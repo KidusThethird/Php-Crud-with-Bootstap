@@ -75,7 +75,7 @@
       </div>
       <div class="modal-body">
         
-                    <form action="insert.php" method="POST">
+                    <form action="update.php" method="POST">
                     <div class="mb-3">
                      
                       <input type="hidden" name="update_id" id="update_id">
@@ -103,7 +103,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" name="updatedata" class="btn btn-primary">Save Edited Data</button>
+        <button type="submit" name="updatedata" class="btn btn-primary"> Update Data</button>
       </div>
 
       </form>
