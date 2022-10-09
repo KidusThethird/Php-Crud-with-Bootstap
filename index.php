@@ -107,6 +107,7 @@
                           <th scope="col">LName</th>
                           <th scope="col">Course</th>
                           <th scope="col">Contact</th>
+                          <th></th>
                         </tr>
                       </thead>
                       <tbody>
@@ -123,6 +124,9 @@
                           <td><?php   echo $row['lname']; ?></td>
                           <td><?php   echo $row['course']; ?></td>
                           <td><?php   echo $row['contact']; ?></td>
+                          <td>
+                            <button type="button" class="btn btn-success">Edit</button>
+                          </td>
                         </tr>
        <?php 
           }
